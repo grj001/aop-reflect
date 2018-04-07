@@ -8,26 +8,26 @@ import net.sf.cglib.proxy.MethodProxy;
 
 public class MyCglib implements MethodInterceptor {
 
-    //Ä¿±ê¶ÔÏó
+    //ç›®æ ‡å¯¹è±¡
     private Object obj = null;
 
-    //´´½¨Ò»¸ö×ÓÀà,ÊµÏÖ´úÀí
+    //åˆ›å»ºä¸€ä¸ªå­ç±»,å®ç°ä»£ç†
     public Object getProxy(Object obj){
         this.obj = obj;
         Enhancer enhancer = new Enhancer();  
         enhancer.setSuperclass(obj.getClass());
-        // »Øµ÷·½·¨  
+        // å›è°ƒæ–¹æ³•  
         enhancer.setCallback(this);  
-        // ´´½¨´úÀí¶ÔÏó  
+        // åˆ›å»ºä»£ç†å¯¹è±¡  
         return enhancer.create();
 
     }
 
     @Override
     public Object intercept(Object object, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
-        System.out.println("Ä¿±ê¶ÔÏó·½·¨Ö´ĞĞÖ®Ç°");
+        System.out.println("ç›®æ ‡å¯¹è±¡æ–¹æ³•æ‰§è¡Œä¹‹å‰");
         Object result = methodProxy.invoke(obj, args);
-        System.out.println("Ä¿±ê·½·¨Ö´ĞĞÖ®ºó");
+        System.out.println("ç›®æ ‡æ–¹æ³•æ‰§è¡Œä¹‹å");
         return result;
     }
 

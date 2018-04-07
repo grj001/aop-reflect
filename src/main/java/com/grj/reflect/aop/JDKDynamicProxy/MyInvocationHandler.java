@@ -12,7 +12,10 @@ public class MyInvocationHandler implements InvocationHandler {
 	//JDK实现动态代理需要实现类通过接口定义业务方法
 	public Object getProxy(Object obj) {
 		this.obj = obj;
-		return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), this);
+		return Proxy.newProxyInstance(
+				obj.getClass().getClassLoader()
+				, obj.getClass().getInterfaces()
+				, this);
 	}
 
 

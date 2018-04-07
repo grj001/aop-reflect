@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 
 /**
- * 反射:
- * 在Integer的List中放置一个String
+ * 鍙嶅皠:
+ * 鍦↖nteger鐨凩ist涓斁缃竴涓猄tring
  *
  */
 public class IStrIList {
@@ -15,7 +15,7 @@ public class IStrIList {
 	public static void main(String[] args) throws Exception {
 		 ArrayList<Integer> list = new ArrayList<Integer>();
          Method method = list.getClass().getMethod("add", Object.class);
-         method.invoke(list, "我是String");
+         method.invoke(list, "鎴戞槸String");
          System.out.println(list.get(0));
 	}
 }

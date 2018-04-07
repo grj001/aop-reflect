@@ -4,9 +4,9 @@ package com.grj.reflect.aop.JDKDynamicProxy;
 public class ProxyTest {
 
     public static void main(String[] args) {
-        //实例化InvocationHandler
+        //瀹炰緥鍖朓nvocationHandler
         MyInvocationHandler myInvocationHandler = new MyInvocationHandler();
-        //生产代理对象
+        //鐢熶骇浠ｇ悊瀵硅薄
         Sky sky = (Sky) myInvocationHandler.getProxy(new SkyImpl());
         sky.rain();
     }

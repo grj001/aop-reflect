@@ -5,23 +5,23 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 public class MyInvocationHandler implements InvocationHandler {
-	// Ä¿±ê¶ÔÏó
+	// ç›®æ ‡å¯¹è±¡
 	private Object obj = null;
 
-	// »ñÈ¡Ä¿±ê¶ÔÏóµÄ´úÀí¶ÔÏó
-	//JDKÊµÏÖ¶¯Ì¬´úÀíĞèÒªÊµÏÖÀàÍ¨¹ı½Ó¿Ú¶¨ÒåÒµÎñ·½·¨
+	// è·å–ç›®æ ‡å¯¹è±¡çš„ä»£ç†å¯¹è±¡
+	//JDKå®ç°åŠ¨æ€ä»£ç†éœ€è¦å®ç°ç±»é€šè¿‡æ¥å£å®šä¹‰ä¸šåŠ¡æ–¹æ³•
 	public Object getProxy(Object obj) {
 		this.obj = obj;
 		return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), this);
 	}
 
 
-	// ¿ØÖÆÖ´ĞĞÄ¿±ê¶ÔÏóµÄ·½·¨
+	// æ§åˆ¶æ‰§è¡Œç›®æ ‡å¯¹è±¡çš„æ–¹æ³•
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-		System.out.println("Ä¿±ê¶ÔÏó·½·¨Ö´ĞĞÖ®Ç°");
+		System.out.println("ç›®æ ‡å¯¹è±¡æ–¹æ³•æ‰§è¡Œä¹‹å‰");
 		Object result = method.invoke(obj, args);
-		System.out.println("Ä¿±ê¶ÔÏó·½·¨Ö´ĞĞÖ®ºó");
+		System.out.println("ç›®æ ‡å¯¹è±¡æ–¹æ³•æ‰§è¡Œä¹‹å");
 		return result;
 	}
 }
